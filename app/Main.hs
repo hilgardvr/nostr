@@ -25,14 +25,14 @@ app env =
         get "/" $ html "<h1>Todo Future</h1>"
         post "/:email" $ do
             email <- param "email" :: ActionM TL.Text
-            u <- liftIO $ executeCreateUser (conn env) (TL.unpack email) "test-key"
-            --g <- liftIO $ executeGetUserByEmail (conn env) (TL.unpack email)
-            --putStrLn (foldr (++) "" g)
+            _ <- liftIO $ executeCreateUser (conn env) (TL.unpack email) "test-key"
             html (templateH1 email)
         get "/:email" $ do
             email <- param "email" :: ActionM TL.Text
-
-            redirect "/"
+            g <- liftIO $ executeGetUserByEmail (conn env) (TL.unpack email)
+            case g of
+                Nothing -> html (templateH1 "Not found")
+                Just u -> html (templateH1 $ TL.pack $ show u)
 
 
 setUpEnv :: IO Env
