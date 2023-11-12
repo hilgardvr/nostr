@@ -35,8 +35,10 @@ library
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
   build-depends:
       base >=4.7 && <5
+    , blaze-html
     , containers
     , directory
+    , mustache
     , scotty ==0.12.*
     , sqlite-simple
     , text ==2.0.2.*
@@ -53,8 +55,10 @@ executable nostr-exe
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
+    , blaze-html
     , containers
     , directory
+    , mustache
     , nostr
     , scotty ==0.12.*
     , sqlite-simple
@@ -73,8 +77,10 @@ test-suite nostr-test
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
+    , blaze-html
     , containers
     , directory
+    , mustache
     , nostr
     , scotty ==0.12.*
     , sqlite-simple

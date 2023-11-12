@@ -11,7 +11,7 @@ someFunc = putStrLn "someFunc"
 
 safeHead :: [a] -> Maybe a
 safeHead [] = Nothing
-safeHead (x:xs) = Just x
+safeHead (x:_) = Just x
 
 initQuery :: Query
 initQuery = Query (T.pack "CREATE TABLE IF NOT EXISTS users (email TEXT NOT NULL, key TEXT NOT NULL);")

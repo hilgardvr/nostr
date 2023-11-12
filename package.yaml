@@ -26,6 +26,8 @@ dependencies:
 - sqlite-simple
 - directory
 - text >= 2.0.2 && < 2.0.3
+- blaze-html
+- mustache
 
 ghc-options:
 - -Wall
